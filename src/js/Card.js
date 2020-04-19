@@ -1,4 +1,5 @@
 import {config} from './config.js';
+import {Script} from './script.js';
 
 export class Card {
     constructor(cardData, openImageCallback/*deleteCardFromList*/) {

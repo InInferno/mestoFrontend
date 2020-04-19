@@ -8,7 +8,7 @@ import {Popup} from './Popup.js';
 import {UserInfo} from './UserInfo.js';
 import {initialCards} from './initialCards.js';
 
-const Script = (function () {
+export const Script = (function () {
   const obj = {};
 
   const popupAddNewCard = document.querySelector('.popup-add');
@@ -53,7 +53,7 @@ const Script = (function () {
   function editUserAvatar(event) {
     event.preventDefault();
 
-    linkAvatar = inputUserAvatar.value;
+    let linkAvatar = inputUserAvatar.value;
     api.setUserPhoto(linkAvatar)
       .then(res => res.json())
       .then((result) => {
