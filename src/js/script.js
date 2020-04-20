@@ -56,9 +56,6 @@ export const Script = (function () {
     let linkAvatar = inputUserAvatar.value;
     api.setUserPhoto(linkAvatar)
       .then(res => res.json())
-      .then((result) => {
-        console.log(result);
-      })
       .catch((err) => {
         console.log(err);
       })
@@ -97,7 +94,7 @@ export const Script = (function () {
       .then(res => res.json())
       .then((result) => {
         Script.renderLoadingProfileInfo(true)
-      console.log(result)})
+      })
       .catch((err) => {
       console.log(err);
       })
@@ -162,7 +159,6 @@ export const Script = (function () {
       .then(res => res.json())
       .then((addedNewCard) => {
         Script.renderLoadingCard(true);
-        console.log(addedNewCard)
         Script.cardsInPlacelist.addCard(addedNewCard)})
       .catch((err) => {
         console.log(err);
@@ -184,7 +180,6 @@ export const Script = (function () {
         api.removeLike(cardInfo)
           .then(res => res.json())
           .then((result) => {
-            console.log(result);
             cardInfo.target.nextSibling.nextSibling.textContent = result.likes.length;
           })
           .catch((err) => {
@@ -195,9 +190,6 @@ export const Script = (function () {
         api.setLike(cardInfo)
           .then(res => res.json())
           .then((result) => {
-            console.log(result);
-            console.log(cardInfo.target.nextSibling.nextSibling)
-            console.log(result.likes.length)
             cardInfo.target.nextSibling.nextSibling.textContent = result.likes.length;
           })
           .catch((err) => {
@@ -212,7 +204,6 @@ export const Script = (function () {
               if(res.ok) {
                 res.json()
                 Card.prototype.remove(element)
-                console.log(res);
               }
             })
             .catch((err) => {
@@ -241,7 +232,6 @@ dataUserFromApi
     return res.json();    
   })
   .then((result) => {
-    console.log(result)
     Script.editProfileDataFromApi(result)
   })
   .catch((err) => {
