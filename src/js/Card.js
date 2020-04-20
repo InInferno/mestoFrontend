@@ -2,7 +2,7 @@ import {config} from './config.js';
 import {Script} from './script.js';
 
 export class Card {
-    constructor(cardData, openImageCallback/*deleteCardFromList*/) {
+    constructor(cardData, openImageCallback) {
       this.cardData = cardData;
       this.cardElement = this.create(this.cardData);
       this.image = this.cardElement.querySelector('.place-card__image');
@@ -20,7 +20,6 @@ export class Card {
       this.cardElement
         .querySelector('.place-card__delete-icon')
         .addEventListener('click', this.cardInfo);
-        //this.deleteCardFromList = deleteCardFromList;
     }
   
     like(event) {     
@@ -28,8 +27,6 @@ export class Card {
     };
   
     remove(cardElement) {
-        // this.deleteCardFromList(this.cardElement);
-        // this.cardElement.parentNode.removeChild(this.cardElement);
         cardElement.parentNode.removeChild(cardElement);
     };
 
@@ -63,13 +60,13 @@ export class Card {
               </div>`);
               
     const basketIcon = template.querySelector('.place-card__delete-icon');
-      if (cardData.owner._id === config.userToken) {
+      if (cardData.owner._id === JSON.parse(config).userToken) {
         basketIcon.style.display = "block";
     };      
 
     const likeIcon = template.querySelector('.place-card__like-icon');
     cardData.likes.forEach(function(item) {
-      if (item._id.includes(config.userToken)) {
+      if (item._id.includes(JSON.parse(config).userToken)) {
         likeIcon.classList.add('place-card__like-icon_liked');
       }
       });

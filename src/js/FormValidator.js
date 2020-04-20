@@ -1,3 +1,5 @@
+import {Script} from './script.js';
+
 export class FormValidator {
     constructor(popupElement) {
       this.setEventListeners(popupElement);
@@ -31,14 +33,6 @@ export class FormValidator {
       isValidForm = inputsArray.every(function(item) {
         return item.checkValidity() === true;
       })
-      
-      // let isValidForm = true;
-      // inputsArray.some(function(item) {
-      //   if (!item.checkValidity()) {
-      //     isValidForm = false;
-      //     return isValidForm;
-      //   }
-      // });
       
       if (isValidForm) {
         event.target.parentElement.querySelector('#button').classList.add('button_active');

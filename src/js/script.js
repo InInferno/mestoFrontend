@@ -233,7 +233,7 @@ export const Script = (function () {
 })();
 
 
-const api = new Api(config);
+const api = new Api(JSON.parse(config));
 
 const dataUserFromApi = api.getUserProfileInfo();
 dataUserFromApi
