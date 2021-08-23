@@ -1,4 +1,4 @@
-const serverUrl = NODE_ENV === 'development' ? 'https://nomoreparties.co/' : 'http://nomoreparties.co/'
+const serverUrl = NODE_ENV === 'development' ? 'http://nomoreparties.co/' : 'https://nomoreparties.co/'
 
 const obj = {
   userToken: 'dd8b6dea22fe4ea0ad5d46f4',
